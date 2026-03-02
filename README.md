@@ -19,11 +19,17 @@ This project was developed as part of my **Python Full Stack program** for self-
    git clone https://github.com/your-username/employee-management.git
    cd employee-management
 2. Create a virtual environment and install dependencies:
-    python -m venv env
+   python -m venv env
    source env/bin/activate   # On Linux/Mac
    env\Scripts\activate      # On Windows
    pip install flask
-3. Run the application:
+3. Install dependencies:
+   pip install flask
+4. Run the application:
    python app.py
+5. Open your browser and go to:
+   http://127.0.0.1:5000/
+
+
 
 
