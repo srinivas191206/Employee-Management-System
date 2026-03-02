@@ -9,7 +9,7 @@ This project was developed as part of my **Python Full Stack program** for self-
 - Data stored persistently in SQLite database
 
 ## Tech Stack
-- Backend: Python (Flask framework)
+- Backend : Python (Flask framework)
 - Database: SQLite
 - Frontend: HTML templates (Jinja2 with Flask)
 
