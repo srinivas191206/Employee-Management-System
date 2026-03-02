@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Employees</title>
+  <style>
+    /* keep your existing CSS unchanged */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #00c6ff);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header { text-align: center; padding: 20px; color: white; }
+    main { flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+    .employee-list { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); width: 80%; max-width: 900px; animation: fadeIn 1s ease-in-out; }
+    .employee-list h2 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
+    table { width: 100%; border-collapse: collapse; text-align: center; }
+    th, td { padding: 12px; border: 1px solid #ddd; }
+    th { background: #34495e; color: white; }
+    tr:nth-child(even) { background: #f9f9f9; }
+    tr:hover { background: #eaf2f8; transition: background 0.3s ease; }
+    footer { background: #2c3e50; color: white; text-align: center; padding: 15px; }
+    footer a { color: #27ae60; text-decoration: none; font-weight: bold; }
+    footer a:hover { color: #2ecc71; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Employee Management System</h1>
+  </header>
+
+  <main>
+    <section class="employee-list">
+      <h2>Employee List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for emp in employees %}
+          <tr>
+            <td>{{ emp[1] }}</td>
+            <td>{{ emp[2]}}</td>
+            <td>{{ emp[3] }}</td>
+            <td>
+              
+              <a href="{{ url_for('delete', emp_id=emp[0]) }}">Delete</a>
+
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="4">No employees added yet.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>    
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Employee Management System | 
+       <a href="{{ url_for('index') }}">Go to Homepage</a></p>
+  </footer>
+</body>
+</html>
